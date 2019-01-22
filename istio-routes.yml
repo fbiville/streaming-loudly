@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: hello-grpc-vsvc
+spec:
+  hosts:
+  - "hello-grpc.example.com"
+  gateways:
+  - hello-grpc-gateway
+  http:
+  - match:
+    - authority:
+        exact: hello-grpc.example.com
+    route:
+    - destination:
+        port:
+          number: 80
+        host: hello-grpc-svc

@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-grpc-svc
+  name: helloworld-go-svc
 spec:
   type: ClusterIP
   ports:
     - port: 80
       targetPort: 8080
-      name: http2
+      name: http
   selector:
-    app: hello-grpc
+    app: helloworld-go
